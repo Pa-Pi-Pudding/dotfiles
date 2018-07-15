@@ -1,0 +1,1 @@
+{'clone', 'depth', 'https', 'github', 'Bash', 'bash', 'bash_it', 'case', 'OSTYPE', 'darwin', 'ruby', 'curl', 'fsSL', 'githubusercontent', 'Homebrew', 'install', 'master', 'brew', 'chsh', 'zplug', 'ctags', 'linux', 'Linux', 'proto', 'redir', 'installer', 'esac', 'yyuu', 'pyenv', 'virtualenv', 'plugins'}

@@ -1,0 +1,1 @@
+{'plugins', 'repo', 'zchee', 'deoplete-go', 'build', 'make', 'on_ft', 'depends', 'deoplete.nvim', 'hook_source', 'deoplete', 'sources', 'align_class', 'sort_class', 'package', 'func', 'type', 'const', 'package_dot', 'gocode_binary', 'GOPATH', 'gocode', 'fatih', 'vim-go'}

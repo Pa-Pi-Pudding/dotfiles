@@ -44,6 +44,8 @@ function! s:DetectJS()
     endif
 endfunction
 autocmd BufNewFile,BufRead * call s:DetectJS()
+" Go dep and Rust use several TOML config files that are not named with .toml.
+autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config set filetype=toml
 au BufNewFile,BufRead *.{js,mjs,jsm,es,es6},Jakefile setf javascript
 
 fun! s:SourceFlowSyntax()
@@ -69,7 +71,5 @@ function! s:isNode()
 endfunction
 
 au BufRead,BufNewFile * if !did_filetype() && s:isNode() | setf javascript | en
-" Go dep and Rust use several TOML config files that are not named with .toml.
-autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config set filetype=toml
 " Detect syntax file.
 autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet

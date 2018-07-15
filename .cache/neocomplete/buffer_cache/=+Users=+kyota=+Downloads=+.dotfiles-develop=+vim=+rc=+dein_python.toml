@@ -1,0 +1,1 @@
+{'plugins', 'repo', 'zchee', 'deoplete-jedi', 'depends', 'deoplete.nvim', 'on_ft', 'python', 'lambdalisue', 'vim-django-support', 'djangohtml', 'vim-pyenv', 'jmcantrell', 'vim-virtualenv'}

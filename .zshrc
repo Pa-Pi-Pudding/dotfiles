@@ -1,23 +1,54 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+# 少し凝った zshrc
+# License : MIT
+# http://mollifier.mit-license.org/
+# vim:set ft=zsh:
+
+case ${OSTYPE} in
+    darwin*)
+        #Mac用の設定
+        export PATH="/usr/local/bin:$PATH"
+        export ZPLUG_HOME=/usr/local/opt/zplug
+        source $ZPLUG_HOME/init.zsh
+        alias ctags="`brew --prefix`/bin/ctags"
+        # nodebrewのpath
+        export PATH=$HOME/.nodebrew/current/bin:$PATH
+        ;;
+    linux*)
+        #Linux用の設定
+        export PYENV_ROOT=$HOME/.pyenv
+        export PATH=$PYENV_ROOT/bin:$PATH
+    ;;
+esac
+
+
+# Customize to your needs...
+
 # pyenv設定
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# 少し凝った zshrc
-# License : MIT
-# http://mollifier.mit-license.org/
-
+eval "$(pyenv virtualenv-init -)"
 ########################################
-# 環境変数
+export LANGUAGE=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
-
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # 色を使用出来るようにする
 autoload -Uz colors
-colors
 
 # emacs 風キーバインドにする
-# bindkey -e 
+# bindkey -e
 
 # ヒストリの設定
 HISTFILE=~/.zsh_history
@@ -30,7 +61,6 @@ SAVEHIST=1000000
 # 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
-
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
@@ -288,17 +318,17 @@ bindkey '^R' history-incremental-pattern-search-backward
 ########################################
 # エイリアス
 
-alias la='ls -a'
-alias ll='ls -l'
+# alias la='ls -a'
+# alias ll='ls -l'
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
 
-alias mkdir='mkdir -p'
+# alias mkdir='mkdir -p'
 
-# sudo の後のコマンドでエイリアスを有効にする
-alias sudo='sudo '
+# # sudo の後のコマンドでエイリアスを有効にする
+# alias sudo='sudo '
 
 # グローバルエイリアス
 alias -g L='| less'
@@ -332,6 +362,3 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
-
-# vim:set ft=zsh:
-

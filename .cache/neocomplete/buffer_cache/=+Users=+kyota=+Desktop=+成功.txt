@@ -1,0 +1,1 @@
+{'MODE', 'COLOR', 'Calibration', 'Mode', 'Start', 'Color', 'generated', 'TOUCH', 'Encrypted', 'CommonKey', 'Receive', 'Received', 'b599', 'commonKey', 'hKYj', 'Decrypted', 'QWf0', 'DEVICE', 'MATCHED', 'Encrypt', 'DevID', 'internal', 'device', 'Q9wB', 'Sent', 'Device', 'hL5l', 'SecretKey', 'encrypted', 'secretKey', 'WQwD', 'cM47', 'Matched', 'Actuation', 'authenticated'}

@@ -77,7 +77,7 @@ endif
 
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
-"ftpluginから読み出せているはず
+"ftpluginから読み出せているはず?
 autocmd BufRead,BufNewFile *.py setfiletype python
 autocmd BufRead,BufNewFile *.rb setfiletype ruby
 
@@ -188,6 +188,17 @@ set background=dark
 set t_Co=256            " gruvboxをカラースキーマにするときに必要！
 let g:ligthline = { 'colorscheme': 'gruvbox' }
 " === gruvbox ===
+
+"背景の透過-----------------------------------
+augroup TransparentBG
+  	autocmd!
+	autocmd Colorscheme * highlight Normal ctermbg=none
+	autocmd Colorscheme * highlight NonText ctermbg=none
+	autocmd Colorscheme * highlight LineNr ctermbg=none
+	autocmd Colorscheme * highlight Folded ctermbg=none
+	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+augroup END
+"---------------------------------------------
 
 "----------------------------------------------------------
 " ステータスラインの設定

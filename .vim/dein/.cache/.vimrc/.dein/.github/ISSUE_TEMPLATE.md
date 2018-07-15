@@ -1,31 +1,37 @@
-# Problems summary
+_To assist in resolving your issue, provide as much information as possible, in place of the ellipses (`…`) below._
 
+---
+**Environment:** _Describe your Vim/NERDTree setup._
 
-## Expected
+>* Operating System: …
+>* Vim version `:version`: …
+>* NERDTree version `git rev-parse --short HEAD`: …
+>* NERDTree settings applied in your vimrc, if any:
+>
+>   ```
+>   …
+>   ```
 
+**Process:** _List the steps that will recreate the issue._
 
-## Environment Information
- * OS:
- * Vim version:
+>1. …
 
+**Current Result:** _Describe what you you currently experience from this process._
 
-## Provide a minimal .vimrc with less than 50 lines (Required!)
+>…
 
-```vim
-" Your minimal .vimrc
-set runtimepath+=~/path/to/neocomplete.nvim/
-let g:neocomplete#enable_at_startup = 1
-```
+**Expected Result:** _Describe what you would expect to have resulted from this process._
 
+>…
 
-## The reproduce ways from Vim starting (Required!)
+---
+**Optional**
 
- 1. foo
- 2. bar
- 3. baz
+**Screenshot(s):**
 
+>…
 
-## Screen shot (if possible)
+**Possible Fix:** _(Have you poked around in the code?)_
 
+>…
 
-## Upload the log messages by `:redir` and `:message`

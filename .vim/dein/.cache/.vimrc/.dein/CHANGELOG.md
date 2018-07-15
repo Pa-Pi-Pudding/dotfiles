@@ -1,117 +1,113 @@
-# Change Log
+# vim-nerdtree-tabs changelog
 
-## [Unreleased](https://github.com/morhetz/gruvbox/tree/HEAD)
+## v1.4.7
 
-[Full Changelog](https://github.com/morhetz/gruvbox/compare/v1.3.5...HEAD)
+* Add smart auto NERDTree open.
 
-**Fixed bugs:**
+## v1.4.6
 
-- Lighter background on terminal [\#8](https://github.com/morhetz/gruvbox/issues/8)
+* Add NERDTreeTabsFind function.
 
-**Closed issues:**
+## v1.4.5
 
-- Installation issue. [\#54](https://github.com/morhetz/gruvbox/issues/54)
+* Add NERDTreeFocusToggle function. (Thanks orthez.)
 
-- Italic font in terminal\(urxvt\) [\#49](https://github.com/morhetz/gruvbox/issues/49)
+* More general refactoring and cleanup. (Thanks techlivezheng.)
 
-- Unable to log in when sourcing the palette shellscript [\#48](https://github.com/morhetz/gruvbox/issues/48)
+## v1.4.4
 
-- How can i modify multiple comment scheme [\#46](https://github.com/morhetz/gruvbox/issues/46)
+* Option to always focus file window after startup. (Thanks rr-.)
 
-- Remove comment highlight in iterm [\#44](https://github.com/morhetz/gruvbox/issues/44)
+## v1.4.3
 
-- Comments looking strange withing tmux [\#43](https://github.com/morhetz/gruvbox/issues/43)
+* Partial fix for #32. When directory is given as an argument, two nerdtrees
+  are open, but both now point into the correct directory. (Thanks szajbus.)
 
-- comments are reverse-video in xterm [\#41](https://github.com/morhetz/gruvbox/issues/41)
+## v1.4.2
 
-- What font are you using in the screenshots? [\#39](https://github.com/morhetz/gruvbox/issues/39)
+* Friendlier when using together with MiniBufExplorer. (Thanks techlivezheng.)
 
-- vim-signature crashes when I use gruvbox [\#38](https://github.com/morhetz/gruvbox/issues/38)
+* Do not open NERDTree by default when starting Vim in diff mode. (Thanks
+  techlivezheng.)
 
-- Color of statusbar in inactive windows [\#37](https://github.com/morhetz/gruvbox/issues/37)
+## v1.4.1
 
-- Go method and struct highlighting missing [\#36](https://github.com/morhetz/gruvbox/issues/36)
+* Fix "cd into" feature for paths that include spaces. (Thanks nybblr.)
 
-- gruvbox\_256palette.sh doesn't work for Konsole [\#35](https://github.com/morhetz/gruvbox/issues/35)
+## v1.4.0
 
-- Contrast in jekyll markdown files [\#33](https://github.com/morhetz/gruvbox/issues/33)
+* When synchronizing NERDTree scroll and cursor position, synchronize also
+  NERDTree window width. (Thanks EinfachToll.)
 
-- Pentadactyl Gruvbox Theme [\#32](https://github.com/morhetz/gruvbox/issues/32)
+* When Vim is given a directory as a parameter, `:cd` into it. (Thanks DAddYE.)
 
-- make vertsplit better [\#31](https://github.com/morhetz/gruvbox/issues/31)
+* New commands `NERDTreeTabsOpen`, `NERDTreeTabsClose` and
+  `NERDTreeMirrorOpen`. They are not a new functionality, just externalize
+  stuff that was previously accessible only inside the plugin.
 
-- Console support. [\#30](https://github.com/morhetz/gruvbox/issues/30)
+* New commands `NERDTreeSteppedOpen` and `NERDTreeSteppedClose` for combined
+  opening/closing of a NERDTree and focus switching. Works locally for a tab.
+  (Thanks ereOn.)
 
-- How can I change the background color? [\#29](https://github.com/morhetz/gruvbox/issues/29)
+* Fixed an error when restoring a session caused by accessing an undefined
+  variable. (Thanks ereOn.)
 
-- Some words are not bold [\#28](https://github.com/morhetz/gruvbox/issues/28)
+* Fixed opening two NERDTrees when `NERDTreeHijackNetrw = 1` and launching
+  with a directory name as a parameter.
 
-- Terminal theme on base gruvbox [\#25](https://github.com/morhetz/gruvbox/issues/25)
+## v1.3.0
 
-- Markdown has inverted colors when using \* [\#24](https://github.com/morhetz/gruvbox/issues/24)
+* Focus synchronization - ability to have focus on NERDTree after tab switch
+  if and only if it was focused before tab switch. Switched on by default.
 
-- how install it on mac osx [\#23](https://github.com/morhetz/gruvbox/issues/23)
+## v1.2.1
 
-- Comments color for Terminal Vim [\#22](https://github.com/morhetz/gruvbox/issues/22)
+* Smart startup focus fixed.
 
-- Move palette files to gruvbox-generalized [\#20](https://github.com/morhetz/gruvbox/issues/20)
+## v1.2.0
 
-- Maybe add Gruvbox Airline theme? [\#19](https://github.com/morhetz/gruvbox/issues/19)
+* Loading process refactoring (should fix some glitches and hopefully not
+  break anything else). Directory structure has changed in this release,
+  a new pull of the repository is required for the plugin to work properly.
 
-- For Sublime text [\#18](https://github.com/morhetz/gruvbox/issues/18)
+## v1.1.2
 
-**Merged pull requests:**
+* Smart focus - on startup, focus NERDTree if opening a directory, focus the
+  file when opening a file.
 
-- Fix the 256 palette script failed login issue [\#53](https://github.com/morhetz/gruvbox/pull/53) ([jonasmalacofilho](https://github.com/jonasmalacofilho))
+## v1.1.1
 
-- add minimal coloring for gitcommit highlighting [\#52](https://github.com/morhetz/gruvbox/pull/52) ([daniely](https://github.com/daniely))
+* About 50% speedup when toggling NERDTree on across all tabs.
 
-- For terminals, turn off italics by default. [\#47](https://github.com/morhetz/gruvbox/pull/47) ([ryanmjacobs](https://github.com/ryanmjacobs))
+## v1.1.0
 
-- Change color of vertical/horizontal seperators between split windows [\#45](https://github.com/morhetz/gruvbox/pull/45) ([deshtop](https://github.com/deshtop))
+* Meaningful tab names feature doesn't collide with opening new tabs silently.
+  To accomplish that, tab switching now preserves window focus. The original
+  behavior that always kept focus in the window with file being edited can be
+  restored by `let g:nerdtree_tabs_focus_on_files = 1`.
+* Removed glitches when sourcing the plugin more than once.
 
-- Improve gruvbox with C code [\#34](https://github.com/morhetz/gruvbox/pull/34) ([gladiac](https://github.com/gladiac))
+## v1.0.1
 
-- Fix for linux console [\#27](https://github.com/morhetz/gruvbox/pull/27) ([vyp](https://github.com/vyp))
+* Plugin is usable with vundle.
 
-- Colors for plugin vimshell.vim [\#21](https://github.com/morhetz/gruvbox/pull/21) ([joelmo](https://github.com/joelmo))
+## v1.0.0
 
-## [v1.3.5](https://github.com/morhetz/gruvbox/tree/v1.3.5) (2014-03-19)
+* NERDTree view synchronization (cursor position and scroll) across tabs
+* Fix: focus is now on NERDTree when opening it in all tabs.
+* If you create more NERDTree instances, nerdtree-tabs now tries hard to sync
+  all tabs to the last opened one.
 
-[Full Changelog](https://github.com/morhetz/gruvbox/compare/v0.0.8...v1.3.5)
+## v0.2.0
 
-**Implemented enhancements:**
-
-- Better selection colors [\#15](https://github.com/morhetz/gruvbox/issues/15)
-
-- When hlsearch is on, the cursor inverts the search color and not visible [\#2](https://github.com/morhetz/gruvbox/issues/2)
-
-**Fixed bugs:**
-
-- Problem with changing between dark and light on 256 color terminal [\#7](https://github.com/morhetz/gruvbox/issues/7)
-
-- IndentGuides coloring doesn't show up [\#1](https://github.com/morhetz/gruvbox/issues/1)
-
-**Closed issues:**
-
-- Requesting rxvt-unicode theme [\#17](https://github.com/morhetz/gruvbox/issues/17)
-
-- gruvbox\_256palette.sh gets reset \(gnome-terminal on Ubuntu\) [\#13](https://github.com/morhetz/gruvbox/issues/13)
-
-- Powerline colors [\#12](https://github.com/morhetz/gruvbox/issues/12)
-
-- Info necessary for making a port of this colorscheme [\#10](https://github.com/morhetz/gruvbox/issues/10)
-
-**Merged pull requests:**
-
-- Fix GNU screen detection for \*-bce [\#16](https://github.com/morhetz/gruvbox/pull/16) ([blueyed](https://github.com/blueyed))
-
-- Added iTerm2 dark theme [\#11](https://github.com/morhetz/gruvbox/pull/11) ([Greduan](https://github.com/Greduan))
-
-- Fix typo in Readme [\#5](https://github.com/morhetz/gruvbox/pull/5) ([ViViDboarder](https://github.com/ViViDboarder))
-
-## [v0.0.8](https://github.com/morhetz/gruvbox/tree/v0.0.8) (2012-12-08)
+* Better solution for opening NERDTree on tab creation (fixes wrong behavior in
+  improbable situations)
+* Global variables for configuration
+* Tab autoclose
+* Option to open NERDTree on console vim startup, stays false by default
+* Readme
 
 
+## v0.1.0
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+* New mappings and a command, otherwise original functionality preserved while making it namespaced
