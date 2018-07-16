@@ -1,21 +1,48 @@
 # pyenv設定
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # 少し凝った zshrc
 # License : MIT
 # http://mollifier.mit-license.org/
 
 ########################################
 # 環境変数
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
+case ${OSTYPE} in
+    darwin*)
+    export ZPLUG_HOME=/usr/local/opt/zplug
+    source $ZPLUG_HOME/init.zsh
+        ;;
+    linux-gnu*)
+        source $HOME/.zplug/init.zsh
+        ;;
+esac
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"
 
+# plugins
+zplug "plugins/git", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "mafredri/zsh-async", from:github
+#zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "zsh-users/zsh-syntax-highlighting"
 
-# 色を使用出来るようにする
-autoload -Uz colors
-colors
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
+# Then, source plugins and add commands to $PATH
+zplug load
 # emacs 風キーバインドにする
 # bindkey -e 
 
@@ -304,7 +331,6 @@ alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
 
-# C で標準出力をクリップボードにコピーする
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
@@ -316,8 +342,6 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
     alias -g C='| putclip'
 fi
-
-
 
 ########################################
 # OS 別の設定
@@ -334,4 +358,3 @@ case ${OSTYPE} in
 esac
 
 # vim:set ft=zsh:
-
