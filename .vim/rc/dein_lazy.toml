@@ -54,13 +54,15 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 depends = ['vimproc.vim', 'shabadou.vim']
 on_ft = ['python']
 hook_source = '''
   source ~/.vim/rc/plugins/vimquickrun.rc.vim
 '''
-
 
 [[plugins]]
 repo = 'neomake/neomake'

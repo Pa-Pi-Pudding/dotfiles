@@ -1,23 +1,31 @@
-language: python
-python: "3.4"
-install:
-  - pip install vim-vint
-
+language: generic
+sudo: false
 env:
-  - VIM_FILES="autoload/openbrowser.vim plugin/openbrowser.vim"
+  - VERSION=HEAD
+  - VERSION=v7.4.2137
+  - VERSION=nvim
+os:
+  - linux
+  - osx
+osx_image: xcode8
 
-before_script:
-  - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
-  - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser
-  - git clone https://github.com/thinca/vim-themis --branch v1.5.4 --single-branch --depth 1 /tmp/vim-themis
-  - git clone https://github.com/Shougo/vimproc.vim /tmp/vimproc
-  - git clone https://github.com/kannokanno/vmock /tmp/vmock
-  - (cd /tmp/vimproc && make)
+addons:
+  apt:
+    packages:
+      - vim
+      - gettext
+      - libncurses5-dev
+      - libacl1-dev
+      - libgpm-dev
+      - libperl-dev
+      - ruby-dev
+      - python-dev
+      - python3-dev
+      - lua5.2
+      - liblua5.2-dev
+
+install:
+  - bash .ci/install.sh
 
 script:
-  - which -a vim
-  - vim --cmd version --cmd quit
-  - vim --cmd "try | helptags doc/ | catch | cquit | endtry" --cmd quit
-  - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser $VIM_FILES
-  - vint $VIM_FILES
-  - /tmp/vim-themis/bin/themis --runtimepath /tmp/vimproc --runtimepath /tmp/vmock --reporter dot
+  - bash .ci/script.sh

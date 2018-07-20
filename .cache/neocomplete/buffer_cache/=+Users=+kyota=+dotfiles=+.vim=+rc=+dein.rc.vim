@@ -1,0 +1,1 @@
+{'&compatible', 'nocompatible', 'endif', 'augroup', 'MyAutoCmd', 'autocmd!', 's:dein_dir', 'expand(', '$CACHE', 'dein', 'dein#load_state(', 'call', 'dein#begin(', 'dein#load_toml(', 'toml', 'lazy', 'dein_lazy', 'dein_neo', 'dein_python', 'dein_go', 'dein_frontend', 'dein#end(', 'dein#save_state(', 'has(', 'vim_starting', 'dein#check_install(', 'dein#install('}

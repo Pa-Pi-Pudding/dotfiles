@@ -1,4 +1,1 @@
-doc/tags
-*.lock
-.vim-flavor
-*.swp
+/doc/tags

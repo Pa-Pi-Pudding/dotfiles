@@ -1,4 +1,4 @@
-set statusline=2
+set statusline=
 function! s:source_rc(path, ...) abort "{{{
   let use_global = get(a:000, 0, !has('vim_starting'))
   let abspath = resolve(expand('~/.vim/rc/' . a:path))
@@ -29,8 +29,9 @@ if !isdirectory(expand($CACHE))
 endif
 
 " Load python3
-let g:python_host_prog = $PYENV_PATH . '/versions/neovim2/bin/python'
-let g:python3_host_prog = $PYENV_PATH . '/versions/neovim3/bin/python'
+let $PYENV_PATH = expand('~/.pyenv')
+let g:python_host_prog =$PYENV_PATH . '/versions/neovim2/bin/python'
+let g:python3_host_prog =$PYENV_PATH . '/versions/neovim3/bin/python'
 
 " Load dein.
 let s:dein_dir = finddir('dein.vim', '.;')

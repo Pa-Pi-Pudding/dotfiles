@@ -23,7 +23,9 @@ case ${OSTYPE} in
         ;;
 esac
 export PYENV_ROOT="$HOME/.pyenv"
+#export PYENV_ROOT="usr/local/opt/pyenv
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # plugins

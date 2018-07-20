@@ -21,6 +21,11 @@ repo = 'michalbachowski/vim-wombat256mod'
 hook_add = '''
    au MyAutoCmd VimEnter * nested colorscheme wombat256mod
 '''
+[[plugins]]
+repo = "majutsushi/tagbar"
+hook_add = '''
+    nnoremap <Space>g :<C-u>TagbarToggle<CR>
+'''
 
 [[plugins]]
 repo    = 'vim-airline/vim-airline'

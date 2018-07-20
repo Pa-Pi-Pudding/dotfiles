@@ -7,6 +7,21 @@ if !exists ('g:encoding_set') || !has('nvim')
 endif
 scriptencoding utf-8
 
+" not input ABCD in the cross key
+set nocompatible
+
+"enable mouse
+if has('mouse')
+    set mouse=a
+    if has('mouse_sgr')
+        set ttymouse=sgr
+    elseif v:version > 703 || v:version is 703 && has('patch632')
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    endif
+endif
+
 " Don't create swp file
 set nowritebackup
 set nobackup
@@ -19,7 +34,7 @@ set noundofile
 " Show column number
 set number
 set cursorline
-hi CursorLine term=bold ctermfg=Cyan guifg=#80a0ff gui=bold
+"hi CursorLine term=bold ctermfg=Cyan guifg=#80a0ff gui=bold
 
 " Long text
 set wrap
@@ -108,10 +123,7 @@ endif
 
 " possible to move from the end of the line to the head of the next line by the cursor's transverse line
 set whichwrap=b,s,h,l,<,>,[,],~
-" 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
-" デフォルトでツリーを表示させる
-autocmd VimEnter * execute 'NERDTree'
+
 " ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " " ステータス行に現在のgitブランチを表示する
@@ -127,17 +139,6 @@ source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 set wildmenu " コマンドモードの補完
 set history=5000 " 保存するコマンド履歴の数
 
-"マウスの有効化
-if has('mouse')
-    set mouse=a
-    if has('mouse_sgr')
-        set ttymouse=sgr
-    elseif v:version > 703 || v:version is 703 && has('patch632')
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
-    endif
-endif
 "クリップボードからコピペするときにインテンドしないようにする
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,7 +175,8 @@ augroup TransparentBG
 augroup END
 "---------------------------------------------
 
-
-
 syntax enable
-
+" 隠しファイルをデフォルトで表示させる
+let NERDTreeShowHidden = 1
+" デフォルトでツリーを表示させる
+autocmd VimEnter * execute 'NERDTree'

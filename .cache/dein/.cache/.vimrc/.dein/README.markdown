@@ -1,145 +1,96 @@
-jellybeans.vim
-==============
+The NERDTree
+=============
 
-A colorful, dark color scheme, inspired by [ir_black][] and [twilight][].
+Introduction
+------------
 
-Designed primarily for a graphical Vim, but includes support for 256, 88, 16,
-and 8 color terminals. On a 16 or 8 color terminal, replace its colors with
-those in `ansi-term-colors.txt` for best results.
+The NERDTree is a file system explorer for the Vim editor. Using this plugin,
+users can visually browse complex directory hierarchies, quickly open files for
+reading or editing, and perform basic file system operations.
 
-This script is [vimscript #2555][vimscript] at Vim.org.
+This plugin can also be extended with custom mappings using a special API. The
+details of this API and of other NERDTree features are described in the
+included documentation.
 
-Scroll down for [screenshots][ss-anchor]!
+![NERDTree Screenshot](https://github.com/scrooloose/nerdtree/raw/master/screenshot.png)
 
-## Options
+Installation
+------------
 
-### Custom Highlights
+#### [pathogen.vim](https://github.com/tpope/vim-pathogen)
 
-If you prefer slightly different colors from what Jellybeans defines,
-you can set `g:jellybeans_overrides` in your .vimrc to a dictionary of
-custom highlighting parameters:
+    git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
-    let g:jellybeans_overrides = {
-    \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-    \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-    \              'attr': 'bold' },
-    \    'Comment': { 'guifg': 'cccccc' },
-    \}
-
-This removes the need to edit Jellybeans directly, simplifying
-upgrades. In addition, RGB colors specified this way are run through
-the same color approximation algorithm that the core theme uses, so
-your colors work just as well in 256-color terminals.
-
-If you can pick better colors than the approximator, specify them
-in the `256ctermfg` and `256ctermbg` parameters to override
-its choices.
-
-#### Custom Background Colors
-
-To set a custom background color, override the special
-`background` highlight group:
-
-    let g:jellybeans_overrides = {
-    \    'background': { 'guibg': '000000' },
-    \}
-
-Jellybeans uses the background color in multiple highlight
-groups. Using the special `background` group overrides them all
-at once.
-
-This replaces `g:jellybeans_background_color` and
-`g:jellybeans_background_color_256` from Jellybeans versions
-before 1.6.
-
-#### Terminal Background
-
-If you would prefer to use your terminal's default background
-(e.g. for transparent backgrounds, image backgrounds, or a
-different color) instead of the background color that Jellybeans
-applies, use this `background` override:
-
-    let g:jellybeans_overrides = {
-    \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-    \}
-
-#### `MatchParen` Colors
-
-Jellybeans sets alternate `MatchParen` colors (magenta on black)
-in some terminals to be more readable out of the box:
-
-- Apple's Terminal.app has default themes with cursor colors
-  that are too close in brightness to Jellybeans' preferred
-  `MatchParen` background color of `#556779` to be
-  clearly distinguishable.
-- Default 16-color terminal palettes don't typically have a
-  color available that can approximate the preferred
-  `MatchParen` background color.
-
-If you use Terminal.app with a brighter cursor color, you can
-use the standard `MatchParen` colors with this override:
-
-    let g:jellybeans_overrides = {
-    \    'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
-    \}
-
-To use the standard `MatchParen` colors in a 16-color terminal,
-configure Low-Color Black as [described in the section
-below](#low-color-black-16-and-8-color-terminals).
-
-If you prefer the alternate `MatchParen` colors, you can use them
-everywhere with
-
-    let g:jellybeans_overrides = {
-    \    'MatchParen': { 'guifg': 'dd0093', 'guibg': '000000',
-    \                    'ctermfg': 'Magenta', 'ctermbg': '' },
-    \}
-
-*Added in version 1.7 (unreleased).*
-
-### Italics
-
-Jellybeans disables italics in terminal Vim by default, as some
-terminals do other things with the text's colors instead of
-actually italicizing the text. If your terminal does fully
-support italics, add
-
-    let g:jellybeans_use_term_italics = 1
-
-to your .vimrc to enable italics in terminal Vim.
-
-If you don't want italics even in GUI Vim, add
-
-    let g:jellybeans_use_gui_italics = 0
-
-### Low-Color Black (16 and 8 color terminals)
-
-Since the background on a dark terminal is usually black already,
-Jellybeans can appropriate the black ANSI color as a dark grey and
-use no color when it really wants black.
-
-After changing your terminal’s color palette (`#444444` is
-suggested), add this to your .vimrc:
-
-    let g:jellybeans_use_lowcolor_black = 1
-
-*This option was changed to be disabled by default in version
-1.7 (unreleased).*
-
-## Screenshots
-
-![][preview-ss]
-
-The font in the screenshot is 10pt [Monaco][monaco]:
-
-```vim
-set guifont=Monaco:h10 noanti
-```
+Then reload Vim, run `:helptags ~/.vim/bundle/nerdtree/doc/` or `:Helptags`, and check out `:help NERDTree.txt`.
 
 
-[ir_black]: https://web.archive.org/web/20140211124943/http://toddwerth.com/2008/01/25/a-black-os-x-leopard-terminal-theme-that-is-actually-readable/
-[twilight]: http://www.vim.org/scripts/script.php?script_id=1677
-[vimscript]: http://www.vim.org/scripts/script.php?script_id=2555
-[preview-ss]: https://nanotech.nanotechcorp.net/downloads/jellybeans-preview.png
-[ss-anchor]: #screenshots
-[monaco]: https://en.wikipedia.org/wiki/Monaco_(typeface)
+#### [apt-vim](https://github.com/egalpin/apt-vim)
+
+    apt-vim install -y https://github.com/scrooloose/nerdtree.git
+
+F.A.Q.
+------
+
+> Is there any support for `git` flags?
+
+Yes, install [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin).
+
+---
+
+> Can I have the nerdtree on every tab automatically?
+
+Nope. If this is something you want then chances are you aren't using tabs and
+buffers as they were intended to be used. Read this
+http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
+
+If you are interested in this behaviour then consider [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
+
+---
+> How can I open a NERDTree automatically when vim starts up?
+
+Stick this in your vimrc: `autocmd vimenter * NERDTree`
+
+---
+> How can I open a NERDTree automatically when vim starts up if no files were specified?
+
+Stick this in your vimrc:
+
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+Note: Now start vim with plain `vim`, not `vim .`
+
+---
+> How can I open NERDTree automatically when vim starts up on opening a directory?
+
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+This window is tab-specific, meaning it's used by all windows in the tab. This trick also prevents NERDTree from hiding when first selecting a file.
+
+---
+> How can I map a specific key or shortcut to open NERDTree?
+
+Stick this in your vimrc to open NERDTree with `Ctrl+n` (you can set whatever key you want):
+
+    map <C-n> :NERDTreeToggle<CR>
+
+---
+> How can I close vim if the only window left open is a NERDTree?
+
+Stick this in your vimrc:
+
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+---
+> Can I have different highlighting for different file extensions?
+
+See here: https://github.com/scrooloose/nerdtree/issues/433#issuecomment-92590696
+
+---
+> How can I change default arrows?
+
+Use these variables in your vimrc. Note that below are default arrow symbols
+
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'

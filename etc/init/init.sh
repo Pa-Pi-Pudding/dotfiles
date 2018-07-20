@@ -7,9 +7,6 @@ case ${OSTYPE} in
     brew install zplugA
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
-    git clone https://github.com/powerline/fonts.git --depth=1
-
-
         ;;
     linux-gnu*)
     sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean
@@ -21,7 +18,12 @@ case ${OSTYPE} in
     ~/.bash_it/install.sh
     source ~/.bashrc
     ;;
-esac'
+esac
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-
+git clone https://github.com/powerline/fonts.git --depth=1
+pip3 install flake8
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
