@@ -10,14 +10,14 @@ case ${OSTYPE} in
         ;;
     linux-gnu*)
     sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean
-    sudo  apt install vim
-    sudo  apt install aptitude
-    sudo  aptitude install vim-gnome
-    sudo  spt install zsh
-    sudo  apt install curl
-    sudo  curl -sL --proto-redir -all,https https://zplug.sh/installer | zsh
-    sudo  git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-    sudo  ~/.bash_it/install.sh
+    sudo apt install vim
+    sudo apt install aptitude
+    sudo aptitude install vim-gnome
+    sudo spt install zsh
+    sudo apt install curl
+    sudo curl -sL --proto-redir -all,https https://zplug.sh/installer | zsh
+    sudo git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    sudo ~/.bash_it/install.sh
     sudo  source ~/.bashrc
     ;;
 esac
