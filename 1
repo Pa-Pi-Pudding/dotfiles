@@ -14,13 +14,7 @@ deploy: ## Create symlink to home directory
 	@echo 'Copyright (c) 2013-2015 BABAROT All Rights Reserved.'
 	@echo '==> Start to deploy dotfiles to home directory.'
 	@echo ''
-	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	 ln -s dotfiles/prezto/runcoms/zlogin ~/.zlogin
-	 ln -s dotfiles/prezto/runcoms/zlogout ~/.zlogout
-	 ln -s dotfiles/prezto/runcoms/zpreztorc ~/.zpreztorc
-	 ln -s dotfiles/prezto/runcoms/zprofile ~/.zprofile
-	 ln -s dotfiles/prezto/runcoms/zshenv ~/.zshenv
-	 ln -s dotfiles/prezto/runcoms/zshrc ~/.zshrc
+	@$(foreach val, $(dotfiles), ln -sfnv $(abspath $(val)) $(home)/$(val);)
 
 init: ## Setup environment settings
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
