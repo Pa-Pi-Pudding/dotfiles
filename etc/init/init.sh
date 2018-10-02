@@ -4,7 +4,8 @@ case ${OSTYPE} in
     darwin*)
     sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     sudo brew install zsh
-    sudo brew install zplugA
+    sudo brew install zplug
+    sudo git clone https://github.com/sorin-ionescu/prezto.git
     sudo git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     sudo ~/.bash_it/install.sh
         ;;
@@ -16,6 +17,7 @@ case ${OSTYPE} in
     sudo spt install zsh
     sudo apt install curl
     sudo curl -sL --proto-redir -all,https https://zplug.sh/installer | zsh
+    sudo git clone https://github.com/sorin-ionescu/prezto.git
     sudo git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     sudo ~/.bash_it/install.sh
     sudo  source ~/.bashrc

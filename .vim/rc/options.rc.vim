@@ -39,7 +39,7 @@ set cursorline
 " Long text
 set wrap
 set textwidth=0
-set colorcolumn=120
+set colorcolumn=80
 
 "  □,○ text was not garbled
 set ambiwidth=double

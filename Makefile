@@ -21,6 +21,7 @@ deploy: ## Create symlink to home directory
 	 ln -s dotfiles/prezto/runcoms/zprofile ~/.zprofile
 	 ln -s dotfiles/prezto/runcoms/zshenv ~/.zshenv
 	 ln -s dotfiles/prezto/runcoms/zshrc ~/.zshrc
+	 ln -s dotfiles/prezto/runcoms/com.googlecode.iterm2.plist ~/.zshrc
 
 init: ## Setup environment settings
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
