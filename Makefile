@@ -21,7 +21,7 @@ deploy: ## Create symlink to home directory
 	 ln -s dotfiles/prezto/runcoms/zprofile ~/.zprofile
 	 ln -s dotfiles/prezto/runcoms/zshenv ~/.zshenv
 	 ln -s dotfiles/prezto/runcoms/zshrc ~/.zshrc
-	 ln -s dotfiles/prezto/runcoms/com.googlecode.iterm2.plist ~/.zshrc
+	 ln -s dotfiles/prezto/runcoms/com.googlecode.iterm2.plist ~/com.googlecode.iterm2.plist 
 
 init: ## Setup environment settings
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
@@ -33,7 +33,7 @@ test: ## Test dotfiles and init scripts
 update: ## Fetch changes for this repo
 	git pull origin master
 	git submodule init
-	git submodule update
+	git submodule update --init --recursiv
 	git submodule foreach git pull origin master
 
 install: update deploy init ## Run make update, deploy, init
