@@ -51,6 +51,7 @@ call s:source_rc('dein.rc.vim')
 call s:source_rc('mappings.rc.vim')
 call s:source_rc('options.rc.vim')
 call s:source_rc('filetype.rc.vim')
+call s:source_rc('javascript.rc.vim')
 
 " インストールされていないプラグインがあればgithub.comからインストールする
 " If you want to install not installed plugins on startup.
